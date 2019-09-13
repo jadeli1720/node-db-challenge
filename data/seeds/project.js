@@ -11,7 +11,7 @@ exports.seed = function(knex) {
       project_name:'Clean House', 
       description: 'Complete weekly house cleaning',
       completed: false
-    }
+    },
 
   ])
     
