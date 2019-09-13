@@ -14,5 +14,18 @@ router.get('/', (req, res) => {
         })
 });
 
+router.post('/', (req, res) => {
+    const newTask = req.body
+    Tasks.insert(newTask)
+        .then(task => {
+            res.status(201).json(task)
+        })
+        .catch(err => {
+            console.log("POST task", err)
+            res.status(500).json({ error: "Could not save the task to the database" })
+        })
+
+})
+
 
 module.exports = router

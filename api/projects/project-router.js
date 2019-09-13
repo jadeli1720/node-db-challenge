@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
             res.status(201).json(project)
         })
         .catch(err => {
-            console.log("GET Project", err)
+            console.log("POST Project", err)
             res.status(500).json({ error: "Could not save the project to the database" })
         })
 
