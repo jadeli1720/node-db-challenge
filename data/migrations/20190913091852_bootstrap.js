@@ -18,7 +18,8 @@ exports.up = function (knex) {
             //boolean indicates it project is complete or not, default to false ---> required
             tbl
                 .boolean('completed')
-                .default(false)
+                .notNullable()
+                .defaultTo(false)
 
         })
 
@@ -71,8 +72,9 @@ exports.up = function (knex) {
             //boolean indicates it project is complete or not, default to false ---> required
             tbl
                 .boolean('completed')
-                .default(false)
                 .notNullable()
+                .defaultTo(false)
+                
 
         })
 };
@@ -80,6 +82,6 @@ exports.up = function (knex) {
 exports.down = function (knex) {
     return knex.schema
         .dropTableIfExists('task')
-        .dropTableIfExists('resources')
+        .dropTableIfExists('resource')
         .dropTableIfExists('project')
 };
