@@ -14,3 +14,4 @@
 - tasks O --------- O Project
 - project O -------- M Resource
 - resource O ------- M Projects
+- intermediary?? Project M -------- M Resource????
