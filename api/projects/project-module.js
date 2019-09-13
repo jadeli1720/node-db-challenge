@@ -20,7 +20,7 @@ function getProject() {
                     return proj.completed = false
                 }
             })
-           newProj.push(project)//push modified array of objects
+            newProj.push(project)//push modified array of objects
             return newProj
         })
 };
@@ -29,6 +29,13 @@ function getById(id) {
     return db('project')
         .where({ "project.id": id })
         .first()
+        .then(proj => {
+                if (proj.completed === 1) {
+                    return proj.completed = true, proj
+                } else {
+                    return proj.completed = false , proj
+                }
+            })
 };
 
 function insert(project) {

@@ -31,6 +31,13 @@ function getById(id) {
     return db('task')
         .where({"task.id": id})
         .first()
+        .then(task => {
+            if (task.completed === 1) {
+                return task.completed = true, task
+            } else {
+                return task.completed = false , task
+            }
+        })
 };
 
 function insert(task){
