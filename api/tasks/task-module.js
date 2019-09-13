@@ -9,7 +9,9 @@ module.exports ={
 //RETURN!!!!!!
 
 function getTask() {
-    return db('task')
+    return db('task as t')
+    .select('p.project_name as Project Name', 'p.description as Project Description', 't.id', 't.description', 't.notes', 't.completed' )
+    .join('project as p','t.project_id','p.id')
 };
 
 function getById(id) {
